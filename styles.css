@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/Sofia Pro Regular.ttf') format('truetype');
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .stopwatch {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .display {
+    font-family: 'Sofia Pro', sans-serif;
+    font-size: 120px;
+    margin-bottom: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .quote {
+    font-family: 'Sofia Pro', sans-serif;
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 20px;
+    margin: 12px;
+    padding: 4px;
+  }
+  
+  button {
+    font-family: 'Sofia Pro', sans-serif;
+    font-size: 16px;
+    margin: 10px;
+    padding: 20px 40px; /* Increased padding for better appearance */
+    cursor: pointer;
+    border: none; /* Remove default button border */
+    border-radius: 20px; /* Rounded corners */
+    background-color: black; /* Black background */
+    color: white; /* White text color */
+  }
+  
+  /* Hover effect */
+  button:hover {
+    background-color: #333; /* Darken the background on hover */
+  }
+  
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 768px) {
+    .display {
+      font-size: 80px;
+    }
+    
+    .quote {
+      font-size: 16px;
+    }
+    
+    button {
+      font-size: 12px;
+      margin: 2px;
+    }
+  }
+  

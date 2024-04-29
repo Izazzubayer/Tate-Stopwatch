@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <div class="stopwatch">
+    <div class="display">00:00</div>
+    <div class="quote">"Build your own dreams or someone else will hire you to build theirs"</div>
+    <button class="start">Start</button>
+    <button class="pause">Pause</button> <!-- Changed class name to "pause" -->
+    <button class="reset">Reset</button>
+    <audio id="pauseSound">
+        <source src="audio/pause.m4a" type="audio/mp4"> <!-- Tate says you are avoiding pain -->
+      </audio>
+      <audio id="resumeSound">
+        <source src="audio/resume.m4a" type="audio/mp4"> <!-- Tate motivates you -->
+      </audio>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
