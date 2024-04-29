@@ -27,41 +27,43 @@ function playSound(audio) {
 }
 
 function startTimer() {
-    if (!isStarted) {
-      startTime = Date.now() - elapsedTime;
-      timerInterval = setInterval(function printTime() {
-        elapsedTime = Date.now() - startTime;
-        display.textContent = formatTime(elapsedTime);
-      }, 10);
-      startBtn.disabled = true;
-      pauseBtn.textContent = 'Pause';
-      isPaused = false;
-      isStarted = true;
-      playSound(startSound); // Play start sound
-    } else if (isPaused) {
-      // Resume the timer
-      timerInterval = setInterval(function printTime() {
-        elapsedTime = Date.now() - startTime;
-        display.textContent = formatTime(elapsedTime);
-      }, 10);
-      startBtn.disabled = true;
-      pauseBtn.textContent = 'Pause';
-      isPaused = false;
-      playSound(resumeSound); // Play resume sound
-    }
+  if (!isStarted) {
+    startTime = Date.now() - elapsedTime;
+    timerInterval = setInterval(function printTime() {
+      elapsedTime = Date.now() - startTime;
+      display.textContent = formatTime(elapsedTime);
+    }, 10);
+    startBtn.disabled = true;
+    pauseBtn.textContent = 'Pause';
+    isPaused = false;
+    isStarted = true;
+    playSound(startSound); // Play start sound
+  } else if (isPaused) {
+    // Resume the timer from the correct elapsed time
+    startTime = Date.now() - elapsedTime;
+    timerInterval = setInterval(function printTime() {
+      elapsedTime = Date.now() - startTime;
+      display.textContent = formatTime(elapsedTime);
+    }, 10);
+    startBtn.disabled = true;
+    pauseBtn.textContent = 'Pause';
+    isPaused = false;
+    playSound(resumeSound); // Play resume sound
   }
-  
-  function pauseTimer() {
-    if (!isPaused) {
-      clearInterval(timerInterval);
-      pauseBtn.textContent = 'Resume';
-      isPaused = true;
-      playSound(pauseSound); // Play pause sound
-    } else {
-      startTimer(); // Resume the timer
-    }
+}
+
+function pauseTimer() {
+  if (!isPaused) {
+    clearInterval(timerInterval);
+    pauseBtn.textContent = 'Resume';
+    isPaused = true;
+    // Store the elapsed time when pausing
+    elapsedTime = Date.now() - startTime;
+    playSound(pauseSound); // Play pause sound
+  } else {
+    startTimer(); // Resume the timer
   }
-  
+}
 
 
 function resetTimer() {
